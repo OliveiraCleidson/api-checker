@@ -53,4 +53,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ secrets.IMAGE }}:${{ github.sha }}
+          repository: OliveiraCleidson/api-checker
