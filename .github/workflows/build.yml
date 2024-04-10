@@ -30,3 +30,27 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.IMAGE }}:latest,${{ secrets.IMAGE }}:${{ github.sha }}
+
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with: 
+          kustomize-version: "3.6.1"
+
+      - name: Update Kubernetes resources
+        env:
+          DOCKER_USERNAME: ${{ secrets.USERNAME }}
+        run: |
+          cd .k8s
+          kustomize edit set image api-checker=${{ secrets.IMAGE }}:${{ github.sha }}
+
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Bump docker version"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ secrets.IMAGE }}:${{ github.sha }}
