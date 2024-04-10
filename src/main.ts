@@ -26,7 +26,7 @@ app.get('/health', (req, res) => {
   res.send('OK');
 });
 
-app.post('/sql', async (req, res): Promise<void> => {
+app.post('/sql', async (req, res) => {
   const body = req.body;
   const parsed = sqlSchema.safeParse(body);
   if (!parsed.success) {

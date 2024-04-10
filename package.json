@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "build": "cross-env NODE_ENV=production yarn type-check && yarn swc src --out-dir dist",
+    "build": "cross-env NODE_ENV=production yarn type-check && yarn clean && yarn swc src --out-dir dist",
     "dev": "cross-env NODE_ENV=development nodemon src/main.ts",
     "start": "node dist/src/main.js",
     "clean": "rimraf dist",
