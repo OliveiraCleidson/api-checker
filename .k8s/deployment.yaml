@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-checker
+  namespace: tests
+spec:
+  selector:
+    matchLabels:
+      app: api-checker
+  template:
+    metadata:
+      labels:
+        app: api-checker
+    spec:
+      containers:
+      - name: api-checker
+        image: api-checker
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 5
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 80
+          periodSeconds: 3

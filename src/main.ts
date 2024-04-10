@@ -16,6 +16,10 @@ const schema = zod.object({
   body: zod.object({}).optional(),
 });
 
+app.get('/health', (req, res) => {
+  res.send('OK');
+});
+
 app.post('/api', (req, res) => {
   const body = req.body;
   const parsed = schema.safeParse(body);
