@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - deployment.yaml
-  - service.yaml
+- deployment.yaml
+- service.yaml
 
 images:
-  - name: api-checker
-    newTag: 1.0.0
-    newName: $REPOSITORY/api-checker
+- name: api-checker
+  newName: registry.digitalocean.com/k8s-arf-registry/api-checker
+  newTag: f0be82d3e4a6427096cc251af2c1cf4ad0cbade8
