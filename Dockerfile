@@ -5,6 +5,7 @@ FROM base AS builder
 COPY package.json ./
 COPY yarn.lock ./
 COPY tsconfig.json ./
+COPY .swcrc ./
 
 RUN yarn
 
