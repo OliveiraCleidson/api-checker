@@ -1,0 +1,5 @@
+{
+  "verbose": false,
+  "watch": "./src",
+  "exec": "node -r @swc-node/register {{filename}}"
+}
