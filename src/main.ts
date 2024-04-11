@@ -34,6 +34,7 @@ app.post('/sql', async (req, res) => {
     return;
   }
 
+  // Force
   const { url, sql } = parsed.data;
   try {
     const connection = new Client({
