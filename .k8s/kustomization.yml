@@ -7,4 +7,4 @@ resources:
 images:
 - name: api-checker
   newName: registry.digitalocean.com/k8s-arf-registry/api-checker
-  newTag: 1f65efa42b7ff943c1f000b0960540f87e842f7f
+  newTag: 1bbbc6189f657c59114fd4df80a9dbcf70215b80
