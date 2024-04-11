@@ -17,8 +17,8 @@ spec:
         image: api-checker
         resources:
           limits:
-            memory: "80Mi"
-            cpu: "100m"
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 80
         livenessProbe:
