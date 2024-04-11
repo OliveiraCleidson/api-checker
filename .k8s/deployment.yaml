@@ -12,7 +12,8 @@ spec:
       labels:
         app: api-checker
     spec:
-      replicas: 3
+      minReplicas: 2
+      maxReplicas: 10
       containers:
       - name: api-checker
         image: api-checker
